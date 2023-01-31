@@ -4,7 +4,7 @@ import EventForm from "../components/EventForm/EventForm";
 
 const NewEventPage = () => {
     return (
-        <EventForm />
+        <EventForm method='POST'/>
     );
 };
 
@@ -22,6 +22,10 @@ export const action = async ({request, params}) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(enteredData)
     });
+
+    if(response.status === 422) {
+        return response;
+    }
 
     if(!response.ok){
         throw json({message: 'Couldn\'t create an event!'}, {status: 500});
