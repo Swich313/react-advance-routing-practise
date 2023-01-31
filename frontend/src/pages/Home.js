@@ -1,10 +1,10 @@
-import EventsList from "../components/EventsList/EventsList";
+import PageContent from "../components/PageContent/PageContent";
 
 const HomePage = () => {
     return (
-        <>
-            <h1>Homepage</h1>
-        </>
+        <PageContent title='Welcome'>
+            <p>Browse all out events!</p>
+        </PageContent>
     );
 };
 
